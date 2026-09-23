@@ -4,3 +4,7 @@
 !*.h
 !*.docx
 !.gitignore
+
+.venv_zvit/
+.venv/
+venv/
