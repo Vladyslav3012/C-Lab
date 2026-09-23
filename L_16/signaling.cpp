@@ -1,5 +1,8 @@
 #include "signaling.h"
 #include <cstring>
+#include <iostream>
+#include <limits>
+#include <string>
 
 using namespace std;
 
@@ -90,6 +93,44 @@ Signaling& Signaling::operator=(Signaling&& other) noexcept {
     }
     cout << "[Move Assignment] Присвоювання переміщенням\n";
     return *this;
+}
+
+Signaling Signaling::inputFromKeyboard() {
+    size_t count;
+    int wirelessFlag;
+    string method;
+
+    while (true) {
+        cout << "Кількість датчиків (>= 1): ";
+        if (cin >> count && count >= 1) {
+            break;
+        }
+        cout << "Помилка: кількість датчиків має бути >= 1!\n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+
+    while (true) {
+        cout << "Бездротові сенсори (1 - так, 0 - ні): ";
+        if (cin >> wirelessFlag && (wirelessFlag == 0 || wirelessFlag == 1)) {
+            break;
+        }
+        cout << "Помилка: введіть 0 або 1!\n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    while (true) {
+        cout << "Спосіб оповіщення (можна кілька слів): ";
+        getline(cin, method);
+        if (!method.empty()) {
+            break;
+        }
+        cout << "Помилка: спосіб оповіщення не може бути порожнім!\n";
+    }
+
+    return Signaling(count, wirelessFlag == 1, method.c_str());
 }
 
 size_t Signaling::getSensorCount() const { return sensorCount; }

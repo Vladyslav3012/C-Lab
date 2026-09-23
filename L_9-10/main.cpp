@@ -19,6 +19,12 @@ int main() {
     Speaker sp1("JBL Flip", 20, 3500, 8, 4);
     Speaker sp2("Yamaha HS8", 120, 18000, 20, 8);
 
+    cout << "\n1a. Введення одного об'єкта з клавіатури (Microphone::inputData):\n";
+    Microphone micKeyboard;
+    micKeyboard.inputData();
+    cout << "Введено: ";
+    micKeyboard.display();
+
     cout << "\n2. Віртуальний виклик через посилання:\n";
     showByRef(mic1);
     showByRef(sp1);
@@ -29,6 +35,7 @@ int main() {
     catalog.add(&mic2);
     catalog.add(&sp1);
     catalog.add(&sp2);
+    catalog.add(&micKeyboard);
 
     cout << "Вхідні дані / усі пристрої:\n";
     catalog.displayAll();

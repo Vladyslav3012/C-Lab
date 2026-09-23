@@ -16,6 +16,8 @@ public:
     void setDiameter(int diameter);
     void setImpedance(int impedance);
 
+    void inputData();
+
     virtual void display() const;
     virtual std::string getType() const;
 };

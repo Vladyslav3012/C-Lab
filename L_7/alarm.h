@@ -22,6 +22,7 @@ public:
     ~AlarmSystem();
 
     void addAlarm(int sensors, bool wireless, std::string method);
+    void inputAlarm();
     void setSensorCount(int index, int sensors);
     void setHasWireless(int index, bool wireless);
     void setAlertMethod(int index, std::string method);

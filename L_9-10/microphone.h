@@ -17,6 +17,8 @@ public:
     void setWireless(bool wireless);
     void setPattern(std::string pattern);
 
+    void inputData();
+
     virtual void display() const;
     virtual std::string getType() const;
 };

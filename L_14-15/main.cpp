@@ -20,10 +20,16 @@ int main() {
     Signaling d(20, true, "email");
     Signaling e(3, false, "дзвінок");
 
+    cout << "\n2a. Введення одного об'єкта з клавіатури (Signaling::inputData):\n";
+    Signaling fromKeyboard;
+    fromKeyboard.inputData();
+    cout << "Введено: " << fromKeyboard << "\n";
+
     list.pushBack(a);
     list.pushBack(b);
     list.pushFront(c);
     list.pushBack(d);
+    list.pushBack(fromKeyboard);
     cout << "\n";
 
     cout << "3. Вставка після елемента:\n";

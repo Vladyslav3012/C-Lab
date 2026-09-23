@@ -11,7 +11,10 @@ using namespace std;
 void demoUniquePtr() {
     cout << "=== 1. std::unique_ptr ===\n\n";
 
-    unique_ptr<Signaling> item1 = make_unique<Signaling>(8, true, "сирена");
+    cout << "Введення одного об'єкта з клавіатури (Signaling::inputData):\n";
+    Signaling typed;
+    typed.inputData();
+    unique_ptr<Signaling> item1 = make_unique<Signaling>(typed);
     cout << "item1.get() = " << item1.get() << "\n";
     item1->display();
 

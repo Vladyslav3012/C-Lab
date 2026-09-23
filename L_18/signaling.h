@@ -15,6 +15,12 @@ public:
     Signaling(int sensors, bool wireless, const std::string& method);
     ~Signaling();
 
+    void setSensorCount(int sensors);
+    void setHasWireless(bool wireless);
+    void setAlertMethod(const std::string& method);
+
+    void inputData();
+
     int getSensorCount() const;
     bool getHasWireless() const;
     std::string getAlertMethod() const;

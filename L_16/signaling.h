@@ -24,6 +24,8 @@ public:
     Signaling(Signaling&& other) noexcept;
     Signaling& operator=(Signaling&& other) noexcept;
 
+    static Signaling inputFromKeyboard();
+
     std::size_t getSensorCount() const;
     bool getHasWireless() const;
     const char* getAlertMethod() const;

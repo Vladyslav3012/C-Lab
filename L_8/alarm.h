@@ -19,6 +19,7 @@ public:
     ~AlarmSystem();
 
     void addAlarm(int sensors, bool wireless, std::string method);
+    void inputAlarm();
     void insertAlarm(int index, int sensors, bool wireless, std::string method);
     void removeAlarm(int index);
     void swapAlarms(int i, int j);

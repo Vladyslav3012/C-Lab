@@ -16,6 +16,8 @@ public:
     void setZone(const std::string& zone);
     std::string getZone() const;
 
+    void inputData();
+
     virtual std::string getType() const;
     virtual void display() const;
 };

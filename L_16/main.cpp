@@ -24,6 +24,12 @@ int main() {
     a.display();
     cout << "\n";
 
+    cout << "1a. Введення одного об'єкта з клавіатури (Signaling::inputFromKeyboard):\n";
+    Signaling fromKeyboard = Signaling::inputFromKeyboard();
+    cout << "  введено: ";
+    fromKeyboard.display();
+    cout << "\n";
+
     cout << "2. Конструктор копіювання (Signaling b = a):\n";
     Signaling b = a;
     cout << "  a: ";

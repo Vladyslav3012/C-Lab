@@ -28,6 +28,8 @@ public:
     void setMonth(int month);
     void setYear(int year);
 
+    void inputData();
+
     int getDay() const;
     int getMonth() const;
     int getYear() const;

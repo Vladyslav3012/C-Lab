@@ -29,6 +29,9 @@ public:
     void inputSpeaker(Speaker& sp, std::string model, int power,
                       double price, int diameter, int impedance);
 
+    void inputMicrophoneFromKeyboard(Microphone& mic);
+    void inputSpeakerFromKeyboard(Speaker& sp);
+
     // виведення даних (читає private-поля напряму)
     void printMicrophone(Microphone& mic) const;
     void printSpeaker(Speaker& sp) const;

@@ -21,6 +21,12 @@ int main() {
     cout << "  max Signaling (за кількістю датчиків): "
          << max_value(a, b) << "\n";
 
+    cout << "\n1a. Введення одного об'єкта з клавіатури (Signaling::inputData):\n";
+    Signaling fromKeyboard;
+    fromKeyboard.inputData();
+    cout << "  введено: " << fromKeyboard << "\n";
+    cout << "  max(a, fromKeyboard): " << max_value(a, fromKeyboard) << "\n";
+
     cout << "  max const char* (повна спеціалізація функції): "
          << max_value<const char*>("email", "дзвінок") << "\n\n";
 

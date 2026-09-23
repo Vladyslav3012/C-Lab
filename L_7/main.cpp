@@ -8,12 +8,14 @@ int main() {
 
     AlarmSystem systems;
 
-    cout << "Вхідні дані:\n";
+    cout << "Вхідні дані (жорстко задані):\n";
     systems.addAlarm(8, true, "сирена");
     systems.addAlarm(12, false, "SMS");
     systems.addAlarm(5, true, "додаток");
     systems.addAlarm(20, true, "сирена + SMS");
-    systems.addAlarm(3, false, "дзвінок");
+
+    cout << "\nВведення одного об'єкта з клавіатури (метод inputAlarm):\n";
+    systems.inputAlarm();
 
     cout << "\nУсі записи:\n";
     systems.displayAll();

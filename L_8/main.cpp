@@ -14,6 +14,10 @@ int main() {
     systems.addAlarm(5, true, "додаток");
     systems.displayAll();
 
+    cout << "\n1a. Введення одного об'єкта з клавіатури (метод inputAlarm):\n";
+    systems.inputAlarm();
+    systems.displayAll();
+
     cout << "\n2. Вставка на позицію 1:\n";
     systems.insertAlarm(1, 10, true, "сирена + SMS");
     systems.displayAll();

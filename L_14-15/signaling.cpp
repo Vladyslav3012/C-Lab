@@ -1,4 +1,5 @@
 #include "signaling.h"
+#include <limits>
 
 using namespace std;
 
@@ -31,6 +32,46 @@ void Signaling::setAlertMethod(const string& method) {
     } else {
         alertMethod = method;
     }
+}
+
+void Signaling::inputData() {
+    int sensors;
+    int wirelessFlag;
+    string method;
+
+    while (true) {
+        cout << "Кількість датчиків (>= 1): ";
+        if (cin >> sensors && sensors >= 1) {
+            break;
+        }
+        cout << "Помилка: кількість датчиків має бути >= 1!\n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+
+    while (true) {
+        cout << "Бездротові сенсори (1 - так, 0 - ні): ";
+        if (cin >> wirelessFlag && (wirelessFlag == 0 || wirelessFlag == 1)) {
+            break;
+        }
+        cout << "Помилка: введіть 0 або 1!\n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    while (true) {
+        cout << "Спосіб оповіщення (можна кілька слів): ";
+        getline(cin, method);
+        if (!method.empty()) {
+            break;
+        }
+        cout << "Помилка: спосіб оповіщення не може бути порожнім!\n";
+    }
+
+    setSensorCount(sensors);
+    setHasWireless(wirelessFlag == 1);
+    setAlertMethod(method);
 }
 
 int Signaling::getSensorCount() const { return sensorCount; }

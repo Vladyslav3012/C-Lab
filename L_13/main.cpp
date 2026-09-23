@@ -24,6 +24,12 @@ int main() {
         OfficeAlarm office(12, false, "SMS", 3);
         HomeAlarm garage(5, true, "додаток", "гараж");
 
+        cout << "\n1a. Введення одного об'єкта з клавіатури (HomeAlarm::inputData):\n";
+        HomeAlarm fromKeyboard;
+        fromKeyboard.inputData();
+        cout << "Введено: ";
+        fromKeyboard.display();
+
         cout << "\n2. Віртуальний вивід через базове посилання:\n";
         showByRef(home);
         showByRef(office);
@@ -40,6 +46,7 @@ int main() {
         catalog.add(home, "зона=" + home.getZone());
         catalog.add(office, "поверх=" + to_string(office.getFloor()));
         catalog.add(garage, "зона=" + garage.getZone());
+        catalog.add(fromKeyboard, "зона=" + fromKeyboard.getZone());
         catalog.displayAll();
 
         cout << "\n5. Запис у файл (fstream):\n";

@@ -1,5 +1,6 @@
 #include "alarm.h"
 #include <iostream>
+#include <limits>
 
 using namespace std;
 
@@ -35,6 +36,44 @@ void AlarmSystem::addAlarm(int sensors, bool wireless, string method) {
     alarms[count].hasWireless = wireless;
     alarms[count].alertMethod = method;
     count++;
+}
+
+void AlarmSystem::inputAlarm() {
+    int sensors;
+    int wirelessFlag;
+    string method;
+
+    while (true) {
+        cout << "Кількість датчиків (1..1000): ";
+        if (cin >> sensors && sensors >= 1 && sensors <= 1000) {
+            break;
+        }
+        cout << "Помилка: кількість датчиків має бути від 1 до 1000!\n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+
+    while (true) {
+        cout << "Бездротові сенсори (1 - так, 0 - ні): ";
+        if (cin >> wirelessFlag && (wirelessFlag == 0 || wirelessFlag == 1)) {
+            break;
+        }
+        cout << "Помилка: введіть 0 або 1!\n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    while (true) {
+        cout << "Спосіб оповіщення (можна кілька слів): ";
+        getline(cin, method);
+        if (!method.empty()) {
+            break;
+        }
+        cout << "Помилка: спосіб оповіщення не може бути порожнім!\n";
+    }
+
+    addAlarm(sensors, wirelessFlag == 1, method);
 }
 
 void AlarmSystem::setSensorCount(int index, int sensors) {

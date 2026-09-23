@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <limits>
 
 using namespace std;
 
@@ -22,11 +23,47 @@ void print_data(struct data_t* data_ptr)
     }
 }
 
+void input_data(unsigned int& a, double& b, int& c)
+{
+    while (true) {
+        cout << "Введіть a (unsigned int, >= 0): ";
+        if (cin >> a) {
+            break;
+        }
+        cout << "Помилка: некоректне значення для a!\n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+
+    while (true) {
+        cout << "Введіть b (double): ";
+        if (cin >> b) {
+            break;
+        }
+        cout << "Помилка: некоректне значення для b!\n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+
+    while (true) {
+        cout << "Введіть c (int): ";
+        if (cin >> c) {
+            break;
+        }
+        cout << "Помилка: некоректне значення для c!\n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+}
+
 int main()
 {
     unsigned int a = 1;
     double b = 3.6;
     int c = -1;
+
+    cout << "=== Лаб. №1-3: введення даних структури з клавіатури ===\n";
+    input_data(a, b, c);
 
     // 0 - unsigned int, 1 - double, 2 - int
     data_t data;
@@ -37,6 +74,7 @@ int main()
     data.types[1] = 1;
     data.types[2] = 2;
 
+    cout << "\nВведені дані:\n";
     print_data(&data);
 
     // (a < c ? a : c) * b

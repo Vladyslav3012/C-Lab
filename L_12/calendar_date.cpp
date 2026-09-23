@@ -1,4 +1,5 @@
 #include "calendar_date.h"
+#include <limits>
 
 using namespace std;
 
@@ -62,6 +63,50 @@ void CalendarDate::setMonth(int month) {
 
 void CalendarDate::setYear(int year) {
     setDate(data.day, data.month, year);
+}
+
+void CalendarDate::inputData() {
+    int day;
+    int month;
+    int year;
+
+    while (true) {
+        cout << "День (1..31): ";
+        if (!(cin >> day) || day < 1 || day > 31) {
+            cout << "Помилка: день має бути від 1 до 31!\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+
+        cout << "Місяць (1..12): ";
+        if (!(cin >> month) || month < 1 || month > 12) {
+            cout << "Помилка: місяць має бути від 1 до 12!\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+
+        cout << "Рік (>= 1): ";
+        if (!(cin >> year) || year < 1) {
+            cout << "Помилка: рік має бути >= 1!\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+
+        if (!isValidDate(day, month, year)) {
+            cout << "Помилка: некоректна дата "
+                 << day << "." << month << "." << year << "! Спробуйте ще раз.\n";
+            continue;
+        }
+
+        data.day = day;
+        data.month = month;
+        data.year = year;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        break;
+    }
 }
 
 int CalendarDate::getDay() const { return data.day; }

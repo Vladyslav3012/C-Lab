@@ -16,6 +16,11 @@ int main() {
     CalendarDate d5(20, 9, 2026); // Неділя
     CalendarDate d6(15, 9, 2026); // Вівторок
 
+    cout << "\n1a. Введення однієї дати з клавіатури (CalendarDate::inputData):\n";
+    CalendarDate dKeyboard;
+    dKeyboard.inputData();
+    cout << "Введено: " << dKeyboard << "\n";
+
     cout << "d1 = " << d1 << "\n";
     cout << "d2 = " << d2 << "\n";
     cout << "d3 = " << d3 << "\n";
@@ -45,6 +50,7 @@ int main() {
     arr.add(d4);
     arr.add(d5);
     arr.add(d6);
+    arr.add(dKeyboard);
     arr.displayAll();
 
     cout << "\n5. Сортування вибором за зростанням дня тижня:\n";

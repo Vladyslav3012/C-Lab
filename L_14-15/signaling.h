@@ -19,6 +19,8 @@ public:
     void setHasWireless(bool wireless);
     void setAlertMethod(const std::string& method);
 
+    void inputData();
+
     int getSensorCount() const;
     bool getHasWireless() const;
     std::string getAlertMethod() const;

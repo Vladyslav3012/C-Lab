@@ -22,6 +22,11 @@ int main() {
     helper.inputSpeaker(sp1, "JBL Flip", 20, 3500, 8, 4);
     helper.inputSpeaker(sp2, "Yamaha HS8", 120, 18000, 20, 8);
 
+    cout << "\n2a. Введення одного об'єкта з клавіатури:\n";
+    Microphone micKeyboard;
+    helper.inputMicrophoneFromKeyboard(micKeyboard);
+    helper.printMicrophone(micKeyboard);
+
     cout << "\n3. Вивід через дружній клас (доступ до private):\n";
     helper.printMicrophone(mic1);
     helper.printMicrophone(mic2);
